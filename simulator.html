@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>祈愿(抽卡模拟器)</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link rel="icon" href="resource/Wish.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/wish_up.css" />
+    <script src="js/initialization.js"></script>
+    <script src="js/update.js"></script>
+    <script src="js/wish_object.js"></script>
+    <script src="js/clear.js"></script>
+  </head>
+
+  <body onload="prompt_update()">
+    <main id="audio"></main>
+    <div id="enter"></div>
+    <div id="wish">
+      <div id="background">
+        <div id="interface">
+          <div id="prompt" class="color_white">
+            <p class="text_center">提示</p>
+            <div class="overflow-y">
+              <div class="center prompt_div">
+                仅供娱乐 素材均来源于网络<br />如果开启了破解复制建议关闭<br />原神角色立绘
+                <a
+                  href="https://www.bilibili.com/read/cv18475650/"
+                  target="_blank"
+                  >来源[1]</a
+                >
+                ,
+                <a
+                  href="https://www.bilibili.com/read/cv24250950/"
+                  target="_blank"
+                  >来源[2]</a
+                ><br />原神祈愿素材
+                <a
+                  href="https://www.bilibili.com/video/BV1C44y157ZZ"
+                  target="_blank"
+                  >来源</a
+                >
+              </div>
+            </div>
+            <div>
+              <div
+                class="buttom text_center no_select color_black"
+                onclick="interface_off()"
+              >
+                关闭
+              </div>
+            </div>
+          </div>
+        </div>
+        <img id="filter" class="no_select" height="100%" width="100%" />
+        <div id="background_color"></div>
+        <video class="video" autoplay muted loop>
+          <source src="resource/background_video.mp4" />
+        </video>
+      </div>
+      <div id="main_body">
+        <div id="top">
+          <div id="wish_logo" class="wish_top">
+            <img id="wish_logo_img" src="resource/Wish.png" />
+            <p id="wish_logo_text" class="color_white no_select">祈愿</p>
+          </div>
+          <div id="wish_object" class="wish_top">
+            <div id="wish_object_div">
+              <div onclick="wish_update(1)" id="wish_object_up1" class="object">
+                <img
+                  class="wish_object_img"
+                  src="resource/wish_object_button.png"
+                />
+                <div id="wish_object_up_1" class="wish_object_up_img"></div>
+              </div>
+              <div onclick="wish_update(2)" id="wish_object_up2" class="object">
+                <img
+                  class="wish_object_img"
+                  src="resource/wish_object_button.png"
+                />
+                <div id="wish_object_up_2" class="wish_object_up_img"></div>
+              </div>
+              <div onclick="wish_update(3)" id="wish_object_up3" class="object">
+                <img
+                  class="wish_object_img"
+                  src="resource/wish_object_button.png"
+                />
+                <div id="wish_object_up_3" class="wish_object_up_img"></div>
+              </div>
+            </div>
+          </div>
+          <div id="wish_currency" class="wish_top no_select">
+            <div id="currency">
+              <div id="currency_div_Primogem" class="currency">
+                <img
+                  class="currency_img currency_Primogem_img"
+                  src="resource/Primogem.png"
+                />
+                <p
+                  id="currency_primogem"
+                  class="currency_text color_white currency_primogem"
+                >
+                  null
+                </p>
+                <img class="currency_img plus" src="resource/plus.png" />
+              </div>
+              <div id="currency_div_fate" class="currency">
+                <img
+                  class="currency_img currency_fate_img"
+                  src="resource/Intertwined Fate.png"
+                />
+                <p
+                  id="currency_fate"
+                  class="currency_text color_white currency_intertwined_fate"
+                >
+                  null
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="middle">
+          <div id="middle_left"></div>
+          <div id="wish_up">
+            <div id="wish_up_div">
+              <img id="wish_up_img" />
+            </div>
+          </div>
+          <div id="middle_right"></div>
+        </div>
+        <div id="bottom">
+          <div id="bottom_left">
+            <div id="bottom_left_up" class="color_white no_select">
+              <div id="star">
+                <img
+                  class="wandering"
+                  src="resource/Star of the Wandering.png"
+                />
+                <p class="currency_star">null</p>
+              </div>
+              <div id="dust">
+                <img
+                  class="wandering"
+                  src="resource/Dust of the Wandering.png"
+                />
+                <p class="currency_dust">null</p>
+              </div>
+            </div>
+            <div id="bottom_left_bottom" class="no_select">
+              <div id="store" class="buttom">尘辉兑换</div>
+              <div id="history" class="buttom">历史记录</div>
+            </div>
+          </div>
+          <div id="bottom_right">
+            <div id="start" class="color_brown no_select">
+              <div id="start_1">
+                <p class="start_text">祈愿1次</p>
+                <div class="start_fate">
+                  <img
+                    class="currency_fate_img"
+                    src="resource/Intertwined Fate.png"
+                  />
+                  <p>x 1</p>
+                </div>
+              </div>
+              <div id="start_10">
+                <p class="start_text">祈愿10次</p>
+                <div class="start_fate">
+                  <img
+                    class="currency_fate_img"
+                    src="resource/Intertwined Fate.png"
+                  />
+                  <p>x 1</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
