@@ -10,7 +10,19 @@
     <link rel="icon" href="resource/Wish.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body
+    id="index_background"
+    style="
+      background: url(resource/background.png) no-repeat;
+      background-position-y: 0px;
+      background-size: 250%;
+    "
+  >
+    <script>
+      var background = document.getElementById("index_background").style;
+      x = Math.ceil(Math.random() * 100);
+      background.backgroundPositionX = x + "%";
+    </script>
     <div>
       <div id="main_simulator">
         <iframe id="simulator" src="simulator.html"></iframe>

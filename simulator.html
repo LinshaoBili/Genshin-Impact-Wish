@@ -8,53 +8,74 @@
       content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <link rel="icon" href="resource/Wish.png" type="image/x-icon" />
+    <link rel="prefetch" href="resource/blue_1.mp4" as="video" />
+    <link rel="prefetch" href="resource/purple_1.mp4" as="video" />
+    <link rel="prefetch" href="resource/purple_10.mp4" as="video" />
+    <link rel="prefetch" href="resource/gold_1.mp4" as="video" />
+    <link rel="prefetch" href="resource/gold_10.mp4" as="video" />
+    <link rel="prefetch" href="resource/click.ogg" as="ogg" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/wish_up.css" />
+    <link rel="stylesheet" href="css/wish.css" />
     <script src="js/initialization.js"></script>
     <script src="js/update.js"></script>
-    <script src="js/wish_object.js"></script>
+    <script src="js/wish.js"></script>
     <script src="js/clear.js"></script>
   </head>
 
   <body onload="prompt_update()">
     <main id="audio"></main>
-    <div id="enter"></div>
-    <div id="wish">
-      <div id="background">
-        <div id="interface">
-          <div id="prompt" class="color_white">
-            <p class="text_center">提示</p>
-            <div class="overflow-y">
-              <div class="center prompt_div">
-                仅供娱乐 素材均来源于网络<br />如果开启了破解复制建议关闭<br />原神角色立绘
-                <a
-                  href="https://www.bilibili.com/read/cv18475650/"
-                  target="_blank"
-                  >来源[1]</a
-                >
-                ,
-                <a
-                  href="https://www.bilibili.com/read/cv24250950/"
-                  target="_blank"
-                  >来源[2]</a
-                ><br />原神祈愿素材
-                <a
-                  href="https://www.bilibili.com/video/BV1C44y157ZZ"
-                  target="_blank"
-                  >来源</a
-                >
-              </div>
-            </div>
-            <div>
-              <div
-                class="buttom text_center no_select color_black"
-                onclick="interface_off()"
+    <div id="enter">
+      <div id="interface">
+        <div id="window_prompt">
+          <div id="window_prompt_title" class="text_center color_white">title</div>
+          <div id="window_prompt_text" class="color_white">text</div>
+          <div
+            id="window_prompt_buttom"
+            class="buttom color_black"
+            onclick="interface_off();audio_buttom()"
+          >
+            关闭
+          </div>
+        </div>
+        <div id="prompt" class="color_white">
+          <p class="text_center">提示</p>
+          <div class="overflow-y">
+            <div class="center prompt_div">
+              仅供娱乐如果 开启了"破解复制"建议关闭<br />为了拥有更好的体验部分文件会提前加载请注意网络<br />素材均来源于网络<br />原神角色立绘
+              <a
+                href="https://www.bilibili.com/read/cv18475650/"
+                target="_blank"
+                >来源[1]</a
               >
-                关闭
-              </div>
+              ,
+              <a
+                href="https://www.bilibili.com/read/cv24250950/"
+                target="_blank"
+                >来源[2]</a
+              ><br />原神祈愿素材
+              <a
+                href="https://www.bilibili.com/video/BV1C44y157ZZ"
+                target="_blank"
+                >来源</a
+              >
+            </div>
+          </div>
+          <div>
+            <div
+              class="buttom text_center no_select color_black"
+              onclick="interface_off('prompt');audio_buttom()"
+            >
+              关闭
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div id="wish">
+      <div id="animation">
+        <video id="wish_animation" src="resource/gold_1.mp4">1</video>
+      </div>
+      <div id="background">
         <img id="filter" class="no_select" height="100%" width="100%" />
         <div id="background_color"></div>
         <video class="video" autoplay muted loop>
@@ -105,7 +126,11 @@
                 >
                   null
                 </p>
-                <img class="currency_img plus" src="resource/plus.png" />
+                <img
+                  onclick="audio_buttom()"
+                  class="currency_img plus"
+                  src="resource/plus.png"
+                />
               </div>
               <div id="currency_div_fate" class="currency">
                 <img
@@ -150,13 +175,17 @@
               </div>
             </div>
             <div id="bottom_left_bottom" class="no_select">
-              <div id="store" class="buttom">尘辉兑换</div>
-              <div id="history" class="buttom">历史记录</div>
+              <div id="store" class="buttom" onclick="audio_buttom()">
+                尘辉兑换
+              </div>
+              <div id="history" class="buttom" onclick="audio_buttom()">
+                历史记录
+              </div>
             </div>
           </div>
           <div id="bottom_right">
             <div id="start" class="color_brown no_select">
-              <div id="start_1">
+              <div id="start_1" onclick="audio_buttom()">
                 <p class="start_text">祈愿1次</p>
                 <div class="start_fate">
                   <img
@@ -166,14 +195,14 @@
                   <p>x 1</p>
                 </div>
               </div>
-              <div id="start_10">
+              <div id="start_10" onclick="audio_buttom()">
                 <p class="start_text">祈愿10次</p>
                 <div class="start_fate">
                   <img
                     class="currency_fate_img"
                     src="resource/Intertwined Fate.png"
                   />
-                  <p>x 1</p>
+                  <p>x 10</p>
                 </div>
               </div>
             </div>
