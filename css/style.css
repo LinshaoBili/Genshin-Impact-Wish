@@ -95,17 +95,17 @@ p {
   margin-top: 0px;
 }
 #window_prompt_text {
-  height: 140px;
   padding: 10px 0px 10px 0px;
 }
 #window_prompt_buttom {
   width: 27.5px;
 }
 #window_prompt {
-  display: none;
   padding: 20px 0px 20px 0px;
   width: 450px;
-  height: 210px;
+  display: none;
+  margin: 15% auto 0px auto;
+  border-radius: 5px;
 }
 #interface * {
   transition: 0.5s;

@@ -28,6 +28,18 @@ function wish_classification() {
     Cache += 1;
   }
 }
+function animation(name, times) {
+  var background = document.getElementById("background");
+  var animationElement = document.getElementById("animation");
+  background.style.zIndex = "10";
+  animationElement.style.zIndex = "10";
+  animationElement.src = "resource/" + name + ".mp4";
+  setTimeout(function () {
+    background.style.zIndex = "";
+    animationElement.style.zIndex = "";
+    animationElement.src = "resource/background_video.mp4";
+  }, times);
+}
 function seek_wish(number) {
   if (number == -1) {
     if (wish_up == 1) {
@@ -68,6 +80,9 @@ function gold(up) {
     seek_wish(-1),
     JSON.stringify([seek_wish(0), 0, number, seek_wish(3), seek_wish(4)])
   );
+  if (color != "gold") {
+    color = "gold";
+  }
   return up;
 }
 function purple(up) {
@@ -81,11 +96,15 @@ function purple(up) {
     seek_wish(-1),
     JSON.stringify([seek_wish(0), seek_wish(1), seek_wish(2), 0, seek_wish(4)])
   );
+  if (color == "blue" || color == null) {
+    color = "purple";
+  }
   return up;
 }
 
 function wish_start(number) {
   wish_classification();
+  color = null;
   max = 90;
   result = [];
   var probability = JSON.parse(localStorage.getItem("probability"));
@@ -137,6 +156,9 @@ function wish_start(number) {
             up = purple_5();
           } else {
             up = blue[Math.ceil(Math.random() * blue[0])];
+            if (color == null) {
+              color = "blue";
+            }
           }
         }
       }
@@ -151,10 +173,22 @@ function wish_start(number) {
   }
 }
 
+function window_prompt_text(title, text) {
+  document.getElementById("window_prompt_title").innerHTML = title;
+  document.getElementById("window_prompt_text").innerHTML = text;
+}
+
 function start(number) {
+  update();
   var primogem = JSON.parse(localStorage.getItem("primogem"));
   if (number * 160 <= primogem) {
-  }else{
-    alert("")
+    localStorage.setItem("primogem", primogem - number * 160);
+    wish_start(number);
+    var name = color + "_" + number;
+    animation(name, 6700);
+  } else {
+    window_prompt_text("原石不足", "请补充");
+    interface_on("window_prompt");
   }
+  update();
 }

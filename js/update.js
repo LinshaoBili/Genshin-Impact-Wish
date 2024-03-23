@@ -62,7 +62,10 @@ function wish_update(wish) {
   audio_buttom();
   update();
 }
-function interface_on() {
+function interface_on(id) {
+  if (id != null) {
+    document.getElementById(id).style.display = "block";
+  }
   document.getElementById("interface").style.zIndex = "10";
   var filter = document.getElementById("filter");
   filter.style.zIndex = "5";
@@ -73,8 +76,8 @@ function interface_off(id) {
   var filter = document.getElementById("filter");
   setTimeout((filter.style.opacity = "0"), 1000);
   filter.style.zIndex = "-10";
-  if (id == "prompt") {
-    document.getElementById(id).style.display="none"
+  if (id != null) {
+    document.getElementById(id).style.display = "none";
   }
 }
 function prompt_update() {

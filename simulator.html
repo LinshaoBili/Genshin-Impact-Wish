@@ -27,12 +27,14 @@
     <div id="enter">
       <div id="interface">
         <div id="window_prompt">
-          <div id="window_prompt_title" class="text_center color_white">title</div>
+          <div id="window_prompt_title" class="text_center color_white">
+            title
+          </div>
           <div id="window_prompt_text" class="color_white">text</div>
           <div
             id="window_prompt_buttom"
             class="buttom color_black"
-            onclick="interface_off();audio_buttom()"
+            onclick="interface_off('window_prompt');audio_buttom()"
           >
             关闭
           </div>
@@ -72,15 +74,16 @@
       </div>
     </div>
     <div id="wish">
-      <div id="animation">
-        <video id="wish_animation" src="resource/gold_1.mp4">1</video>
-      </div>
       <div id="background">
         <img id="filter" class="no_select" height="100%" width="100%" />
         <div id="background_color"></div>
-        <video class="video" autoplay muted loop>
-          <source src="resource/background_video.mp4" />
-        </video>
+        <video id="animation"
+          class="video"
+          src="resource/background_video.mp4"
+          autoplay
+          muted
+          loop
+        ></video>
       </div>
       <div id="main_body">
         <div id="top">
@@ -185,7 +188,7 @@
           </div>
           <div id="bottom_right">
             <div id="start" class="color_brown no_select">
-              <div id="start_1" onclick="audio_buttom()">
+              <div id="start_1" onclick="audio_buttom();start(1)">
                 <p class="start_text">祈愿1次</p>
                 <div class="start_fate">
                   <img
@@ -195,7 +198,7 @@
                   <p>x 1</p>
                 </div>
               </div>
-              <div id="start_10" onclick="audio_buttom()">
+              <div id="start_10" onclick="audio_buttom();start(10)">
                 <p class="start_text">祈愿10次</p>
                 <div class="start_fate">
                   <img

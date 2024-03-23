@@ -1,11 +1,10 @@
 //初始化
-let interface = 0;
 wish_up = 1;
 cost = 160;
 var initialization = localStorage.getItem("prompt");
 if (initialization == null) localStorage.setItem("prompt", 1); //提示
 var initialization = localStorage.getItem("primogem");
-if (initialization == null) localStorage.setItem("primogem", 648); //原石
+if (initialization == null) localStorage.setItem("primogem", 6480); //原石
 var initialization = localStorage.getItem("star");
 if (initialization == null) localStorage.setItem("star", 0); //无主的星辉
 var initialization = localStorage.getItem("dust");
