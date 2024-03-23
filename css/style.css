@@ -87,21 +87,21 @@ p {
 .overflow-y {
   overflow-y: auto;
 }
-#window_prompt *{
+#window_prompt * {
   width: 80%;
   margin: 0px auto 0px auto;
 }
-#window_prompt_title{
+#window_prompt_title {
   margin-top: 0px;
 }
-#window_prompt_text{
+#window_prompt_text {
   height: 140px;
   padding: 10px 0px 10px 0px;
 }
-#window_prompt_buttom{
+#window_prompt_buttom {
   width: 27.5px;
 }
-#window_prompt{
+#window_prompt {
   display: none;
   padding: 20px 0px 20px 0px;
   width: 450px;
@@ -117,9 +117,11 @@ p {
 #interface a {
   opacity: 1;
 }
-#prompt,#window_prompt{
+#prompt,
+#window_prompt {
   background-color: rgba(183, 164, 144, 0.888);
-  box-shadow: 0px 0px 100px #b7a490;}
+  box-shadow: 0px 0px 100px #b7a490;
+}
 #prompt {
   margin-top: 15%;
   padding: 10px 0px 10px 0px;
@@ -187,6 +189,9 @@ p {
   box-shadow: inset 0px 0px 200px #000;
   position: fixed;
   filter: blur(0px);
+}
+body {
+  background: no-repeat url(../resource/background_png.png) 0px 0px/100%;
 }
 .video {
   height: auto;
