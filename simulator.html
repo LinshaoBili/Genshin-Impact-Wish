@@ -14,6 +14,7 @@
     <link rel="prefetch" href="resource/gold_1.mp4" as="video" />
     <link rel="prefetch" href="resource/gold_10.mp4" as="video" />
     <link rel="prefetch" href="resource/click.ogg" as="ogg" />
+    <link rel="prefetch" href="resource/wish.ogg" as="ogg" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/wish.css" />
     <script src="js/initialization.js"></script>
@@ -26,6 +27,10 @@
     <main id="audio"></main>
     <div id="enter">
       <div id="interface">
+        <div id="role_portrait">
+          <div id="portrait_name">null</div>
+          <div id="portrait">null</div>
+        </div>
         <div id="window_prompt">
           <div id="window_prompt_title" class="text_center color_white">
             title
@@ -77,13 +82,16 @@
       <div id="background">
         <img id="filter" class="no_select" height="100%" width="100%" />
         <div id="background_color"></div>
-        <video id="animation"
+        <video
+          id="animation"
           class="video"
           src="resource/background_video.mp4"
           autoplay
           muted
           loop
-        ></video>
+        >
+          <audio id="animation_ogg"></audio>
+        </video>
       </div>
       <div id="main_body">
         <div id="top">
@@ -130,7 +138,7 @@
                   null
                 </p>
                 <img
-                  onclick="audio_buttom()"
+                  onclick="audio_buttom();plus()"
                   class="currency_img plus"
                   src="resource/plus.png"
                 />

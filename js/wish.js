@@ -31,13 +31,18 @@ function wish_classification() {
 function animation(name, times) {
   var background = document.getElementById("background");
   var animationElement = document.getElementById("animation");
+  var animation_ogg = document.getElementById("animation_ogg");
   background.style.zIndex = "10";
   animationElement.style.zIndex = "10";
   animationElement.src = "resource/" + name + ".mp4";
+  animation_ogg.src = "resource/wish.ogg";
+  animation_ogg.controls = false;
+  animation_ogg.play();
   setTimeout(function () {
     background.style.zIndex = "";
     animationElement.style.zIndex = "";
     animationElement.src = "resource/background_video.mp4";
+    animation_ogg.src = "";
   }, times);
 }
 function seek_wish(number) {
@@ -83,7 +88,7 @@ function gold(up) {
   if (color != "gold") {
     color = "gold";
   }
-  return up;
+  return "5/" + up;
 }
 function purple(up) {
   if (up != "yes") {
@@ -99,9 +104,17 @@ function purple(up) {
   if (color == "blue" || color == null) {
     color = "purple";
   }
-  return up;
+  return "4/" + up;
 }
 
+function sort() {
+  result.sort((a, b) => {
+    const numA = parseInt(a.split("/")[0]);
+    const numB = parseInt(b.split("/")[0]);
+    return numB - numA;
+  });
+  result = result.map((item) => item.split("/")[1]);
+}
 function wish_start(number) {
   wish_classification();
   color = null;
@@ -155,7 +168,7 @@ function wish_start(number) {
           if (probability[1] > text) {
             up = purple_5();
           } else {
-            up = blue[Math.ceil(Math.random() * blue[0])];
+            up = "3/" + blue[Math.ceil(Math.random() * blue[0])];
             if (color == null) {
               color = "blue";
             }
@@ -171,6 +184,9 @@ function wish_start(number) {
       break;
     }
   }
+}
+
+function portrait() {
 }
 
 function window_prompt_text(title, text) {

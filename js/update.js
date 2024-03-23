@@ -81,11 +81,13 @@ function interface_off(id) {
   }
 }
 function prompt_update() {
-  if (localStorage.getItem("prompt") == 1)
-    var prompt = document.getElementById("prompt");
-  prompt.style.opacity = "1";
-  prompt.style.zIndex = "0";
-  interface_on();
+  if (localStorage.getItem("prompt") == 1) {
+    prompt.style.opacity = "1";
+    prompt.style.zIndex = "0";
+    interface_on();
+  } else {
+    interface_off("prompt");
+  }
   update();
 }
 
@@ -108,4 +110,12 @@ function audio_buttom() {
   audioContainer.appendChild(audio);
   // 播放音频
   audio.play();
+}
+
+function plus() {
+  var number =
+    Number(Math.ceil(Math.random() * 10086)) +
+    Number(localStorage.getItem("primogem"));
+  localStorage.setItem("primogem", number);
+  update();
 }

@@ -5,7 +5,7 @@
     <title>祈愿(抽卡模拟器)</title>
     <meta
       name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+      content="width=device-width,initial-scale=1,minimum-scale=0.5,maximum-scale=0.5,user-scalable=no"
     />
     <link rel="icon" href="resource/Wish.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
@@ -26,6 +26,30 @@
     <div>
       <div id="main_simulator">
         <iframe id="simulator" src="simulator.html"></iframe>
+        <div
+          onclick="deg()"
+          style="
+            text-align: center;
+            margin-top: 90%;
+            padding: 10px 20px 10px 20px;
+            background-color: #b7a490;
+            border-radius: 50px;
+          "
+        >
+          旋转
+        </div>
+        <script>
+          function deg() {
+            index_background = document.getElementById("index_background");
+            if (index_background.style.transform != "rotate(90deg)") {
+              index_background.style.transform = "rotate(90deg)";
+              index_background.style.marginTop = "50%";
+            } else {
+              index_background.style.transform = "rotate(0deg)";
+              index_background.style.marginTop = "";
+            }
+          }
+        </script>
       </div>
     </div>
   </body>
