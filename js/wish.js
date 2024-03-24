@@ -43,6 +43,8 @@ function animation(name, times) {
     animationElement.style.zIndex = "";
     animationElement.src = "resource/background_video.mp4";
     animation_ogg.src = "";
+    audio_buttom("wish_appear");
+    new_portrait();
   }, times);
 }
 function seek_wish(number) {
@@ -113,7 +115,7 @@ function sort() {
     const numB = parseInt(b.split("/")[0]);
     return numB - numA;
   });
-  result = result.map((item) => item.split("/")[1]);
+  // result = result.map((item) => item.split("/")[1]);
 }
 function wish_start(number) {
   wish_classification();
@@ -185,10 +187,96 @@ function wish_start(number) {
     }
   }
 }
-
-function portrait() {
+function new_portrait() {
+  player = 0;
+  number = result.length;
+  document.getElementById("portrait_color").src =
+    "resource/wish_background_" + Math.ceil(Math.random() * 5) + ".png";
+  portrait();
 }
-
+function portrait() {
+  var portrait_name = document.getElementById("portrait_name_div");
+  var portrait_main = document.getElementById("portrait_main");
+  var portrait_name_star = document.getElementById("portrait_name_star");
+  var portrait = document.getElementById("portrait");
+  portrait_main.style.backgroundImage = "";
+  portrait_main.style.backgroundPositionX = "0px";
+  portrait_main.style.backgroundPositionY = "0px";
+  portrait_main.style.filter = "contrast(0%)";
+  portrait_name.style.transition = "none";
+  while (portrait_name_star.firstChild) {
+    portrait_name_star.removeChild(portrait_name_star.firstChild);
+  }
+  function off() {
+    sort();
+    interface_off("role_portrait");
+    document.getElementById("portrait_list").innerHTML = "";
+    if (result.length > 1) {
+      interface_on("list");
+      for (var i = 0; i < result.length; i++) {
+        var number = Number(result[i].split("/")[0]);
+        if (number == 5) {
+          var color = "gold";
+        } else {
+          if (number == 4) {
+            var color = "purple";
+          } else {
+            var color = "blue";
+          }
+        }
+        new_list(result[i].split("/")[1], color);
+        list_width_update();
+      }
+    }
+  }
+  function star() {
+    for (var i = 0; i < name[0]; i++) {
+      var newElement = document.createElement("div");
+      newElement.className = "star";
+      portrait_name_star.appendChild(newElement);
+    }
+  }
+  if (number <= 0) {
+    off();
+  } else {
+    interface_on("role_portrait");
+    try {
+      if (Number(player) != 0) {
+        player = 0;
+        number -= 1;
+        audio_buttom("wish_appear");
+      }
+      var name = result[number - 1].split("/");
+    } catch (err) {
+      off();
+    }
+    try {
+      name[0] = Number(name[0]);
+      portrait_name.innerHTML = name[1];
+    } catch (err) {
+      name = [3, "dubug"];
+    }
+    star();
+    if (name[0] > 3) {
+      portrait_main.style.transition = "0.5s";
+      portrait_main.style.backgroundImage =
+        "url(resource/portrait/Genshin_Impact/" + name[1] + ".png)";
+      portrait_main.style.backgroundPositionX = "center";
+      portrait_main.style.backgroundPositionY = "center";
+      setTimeout(function () {
+        portrait_main.style.filter = "contrast(100%)";
+      }, 500);
+      portrait.style.opacity = "1";
+    } else {
+      portrait_main.style.backgroundImage = "";
+      portrait.style.opacity = "0";
+    }
+  }
+}
+function incomplete() {
+  window_prompt_text("未完成", "很抱歉此功能暂未制作完成<br />敬请期待");
+  interface_on("window_prompt");
+}
 function window_prompt_text(title, text) {
   document.getElementById("window_prompt_title").innerHTML = title;
   document.getElementById("window_prompt_text").innerHTML = text;
@@ -207,4 +295,67 @@ function start(number) {
     interface_on("window_prompt");
   }
   update();
+}
+
+function new_list(role, color) {
+  var portrait_list = document.createElement("div");
+  portrait_list.className = "portrait_list";
+  portrait_list.style.opacity = "0";
+  for (let i = 0; i < 3; i++) {
+    const list_div = document.createElement("div");
+    const name = ["light_top", "list", "light_bottom"];
+    list_div.className = name[i];
+    if (name[i] == "list") {
+      list_div.className = name[i] + " " + role;
+      list_div.style.backgroundImage =
+        "url(resource/portrait/Genshin_Impact/" + role + ".png)";
+    } else {
+      if (color == "gold") {
+        list_div.className = list_div.className + " gold";
+      } else {
+        if (color == "purple") {
+          list_div.className = list_div.className + " purple";
+        } else {
+          list_div.className = list_div.className + " blue";
+        }
+      }
+    }
+    portrait_list.appendChild(list_div);
+  }
+  document.getElementById("portrait_list").appendChild(portrait_list);
+  setTimeout(function () {
+    const y = "55";
+    var portrait_list = document.getElementsByClassName("portrait_list");
+    for (var i = 0; i < portrait_list.length; i++) {
+      portrait_list[i].style.opacity = "1";
+    }
+    setTimeout(function () {
+      var light_top = document.getElementsByClassName("light_top gold");
+      for (var i = 0; i < light_top.length; i++) {
+        light_top[i].style.boxShadow = "0px -" + y + "px 20px -5px goldenrod";
+      }
+      var light_top = document.getElementsByClassName("light_top purple");
+      for (var i = 0; i < light_top.length; i++) {
+        light_top[i].style.boxShadow = "0px -" + y + "px 20px -5px blueviolet";
+      }
+      var light_top = document.getElementsByClassName("light_top blue");
+      for (var i = 0; i < light_top.length; i++) {
+        light_top[i].style.boxShadow = "0px -" + y + "px 20px -5px deepskyblue";
+      }
+      var light_bottom = document.getElementsByClassName("light_bottom gold");
+      for (var i = 0; i < light_bottom.length; i++) {
+        light_bottom[i].style.boxShadow = "0px " + y + "px 20px -5px goldenrod";
+      }
+      var light_bottom = document.getElementsByClassName("light_bottom purple");
+      for (var i = 0; i < light_bottom.length; i++) {
+        light_bottom[i].style.boxShadow =
+          "0px " + y + "px 20px -5px blueviolet";
+      }
+      var light_bottom = document.getElementsByClassName("light_bottom blue");
+      for (var i = 0; i < light_bottom.length; i++) {
+        light_bottom[i].style.boxShadow =
+          "0px " + y + "px 20px -5px deepskyblue";
+      }
+    }, 200);
+  }, 150);
 }

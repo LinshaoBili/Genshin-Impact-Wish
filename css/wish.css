@@ -1,18 +1,206 @@
 #role_portrait {
-  width: 100%;
-  height: 100%;
   display: none;
-  background-color: aliceblue;
-  z-index: 0;
+  z-index: 10;
+  transition: 0.5s;
 }
 #portrait_name {
   width: 200px;
   height: 50px;
-  transition: 0.5s;
+  margin-top: 25%;
+  margin-left: 19%;
+  z-index: 15;
+}
+#portrait_name_div {
+  font-size: 25px;
+  text-shadow: 0px 0px 5px #ffffff3b;
+  font-weight: bold;
 }
 #portrait {
-  width: 200px;
-  height: 200px;
-  margin: 0px auto 0px auto;
+  position: absolute;
+  transition: 1s;
+  z-index: -1;
+}
+#portrait_main {
+  margin: -50px auto 0px auto;
+  width: 750px;
+  height: 750px;
+  filter: contrast(0%);
   transition: 0.5s;
+  background: 0px 0px/80% no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+#portrait_color {
+  position: absolute;
+  z-index: -5;
+  filter: blur(25px);
+  transition: 0.5s;
+}
+#portrait_background {
+  position: absolute;
+  z-index: -4;
+  opacity: 0.75;
+  background-color: #393927;
+}
+#role_portrait,
+#portrait,
+#portrait_color,
+#portrait_background {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.star {
+  width: 25px;
+  height: 25px;
+  float: left;
+  background-image: url(../resource/Star.png);
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-size: 100%;
+  transition: 0.5s;
+}
+#portrait_name_star {
+  display: flex;
+  width: 150px;
+}
+#list {
+  display: none;
+  width: 0px;
+  height: 100%;
+  margin: 0px auto 0px auto;
+}
+#portrait_list {
+  display: flex;
+  width: 700px;
+  left: 25%;
+  height: 100%;
+  flex-wrap: nowrap;
+}
+.portrait_list {
+  min-width: 70px;
+  height: 302.5px;
+  margin: 150px 2.5px 0px 2.5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background: no-repeat 0px 0px/100% url(../resource/wish_list.png);
+}
+.light_top,
+.light_bottom {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+  z-index: -1;
+  transition: 0.5s;
+}
+.light_top {
+  margin-top: -150px;
+  box-shadow: 0px -55px 0px -500px rgba(0, 191, 255, 0);
+}
+.light_bottom {
+  margin-bottom: -150px;
+  box-shadow: 0px 55px 0px -500px rgba(0, 191, 255, 0);
+}
+#list_buttom {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  padding: 2.5px;
+  width: 22.5px;
+  height: 22.5px;
+  border-radius: 100px;
+  background: url(../resource/plus.png) no-repeat 0px 0px/100%;
+  box-shadow: 0px 0px 2px #ffffff3b;
+  transform: rotate(45deg);
+}
+.list {
+  margin: 2px;
+  width: 100%;
+  height: 75%;
+  background-size: 500%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.list.阿贝多 {
+  background-size: 850%;
+  background-position: 55% 35%;
+}
+.list.八重神子 {
+  background-position: 55% 0%;
+}
+.list.艾尔海森 {
+  background-size: 900%;
+  background-position: 45% 10%;
+}
+.list.白术 {
+  background-size: 800%;
+  background-position: 43% 15%;
+}
+.list.达达利亚 {
+  background-size: 900%;
+  background-position: 45% 40%;
+}
+.list.迪卢克 {
+  background-size: 900%;
+  background-position: 57% 50%;
+}
+.list.迪希雅 {
+  background-size: 900%;
+  background-position: 52% 10%;
+}
+.list.芙宁娜 {
+  background-size: 900%;
+  background-position: 55% 20%;
+}
+.list.甘雨 {
+  background-position: 50% 10%;
+}
+.list.胡桃 {
+  background-size: 900%;
+  background-position: 62.5% 20%;
+}
+.list.刻晴 {
+  background-size: 800%;
+  background-position: 57.5% 20%;
+}
+.list.莱欧斯利 {
+  background-size: 1200%;
+  background-position: 55% 10%;
+}
+.list.雷电将军 {
+  background-size: 700%;
+  background-position: 47.5% 17.5%;
+}
+.list.林尼 {
+  background-size: 1000%;
+  background-position: 51% 15%;
+}
+.list.流浪者 {
+  background-size: 800%;
+  background-position: 50% 15%;
+}
+.list.莫娜 {
+  background-size: 600%;
+  background-position: 50% 25%;
+}
+.list.那维莱特 {
+  background-size: 1000%;
+  background-position: 50% 18%;
+}
+.list.丽莎 {
+  background-position: 47.5% 0%;
+}
+.list.菲谢尔 {
+  background-position: 55% 50%;
+}
+.list.莱依拉 {
+  background-position: 50% 25%;
 }

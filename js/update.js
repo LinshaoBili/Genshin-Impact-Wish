@@ -26,6 +26,25 @@ function update() {
   for (var i = 0; i < acquaint_fate.length; i++) {
     acquaint_fate[i].innerHTML = localStorage.getItem("acquaint_fate");
   }
+  var gold_probability = document.getElementsByClassName("gold_probability");
+  for (var i = 0; i < gold_probability.length; i++) {
+    gold_probability[i].innerHTML = JSON.parse(
+      localStorage.getItem("probability")
+    )[0];
+  }
+  var purple_probability =
+    document.getElementsByClassName("purple_probability");
+  for (var i = 0; i < purple_probability.length; i++) {
+    purple_probability[i].innerHTML = JSON.parse(
+      localStorage.getItem("probability")
+    )[1];
+  }
+  var blue_probability = document.getElementsByClassName("blue_probability");
+  for (var i = 0; i < blue_probability.length; i++) {
+    blue_probability[i].innerHTML = JSON.parse(
+      localStorage.getItem("probability")
+    )[2];
+  }
   wish_up_1 = JSON.parse(localStorage.getItem("role_up_1"));
   wish_up_2 = JSON.parse(localStorage.getItem("role_up_2"));
   wish_up_3 = JSON.parse(localStorage.getItem("collection_up"));
@@ -59,7 +78,7 @@ function update() {
 }
 function wish_update(wish) {
   wish_up = wish;
-  audio_buttom();
+  audio_buttom("click");
   update();
 }
 function interface_on(id) {
@@ -81,7 +100,8 @@ function interface_off(id) {
   }
 }
 function prompt_update() {
-  if (localStorage.getItem("prompt") == 1) {
+  if (Number(localStorage.getItem("prompt")) == 1) {
+    var prompt = document.getElementById("prompt");
     prompt.style.opacity = "1";
     prompt.style.zIndex = "0";
     interface_on();
@@ -92,9 +112,9 @@ function prompt_update() {
 }
 
 // 确保DOM加载完成后再执行JavaScript代码
-function audio_buttom() {
+function audio_buttom(name) {
   const audio = document.createElement("audio");
-  audio.src = "resource/click.ogg"; // 确保这里是正确的音频文件路径
+  audio.src = "resource/" + name + ".ogg"; // 确保这里是正确的音频文件路径
   audio.controls = false; // 可选：显示音频控件，以便用户可以控制播放
   // 当音频播放结束时，删除audio元素
   function removeAudio() {
@@ -118,4 +138,10 @@ function plus() {
     Number(localStorage.getItem("primogem"));
   localStorage.setItem("primogem", number);
   update();
+}
+function list_width_update() {
+  var list = document.getElementById("portrait_list");
+  list.style.minWidth =
+    document.getElementsByClassName("portrait_list").length * 75 + "px";
+  list.style.marginLeft = "-" + Number(list.style.minWidth.split("px")[0]) / 2 + "px";
 }

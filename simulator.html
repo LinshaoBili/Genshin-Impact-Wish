@@ -22,14 +22,25 @@
     <script src="js/wish.js"></script>
     <script src="js/clear.js"></script>
   </head>
-
   <body onload="prompt_update()">
     <main id="audio"></main>
     <div id="enter">
       <div id="interface">
-        <div id="role_portrait">
-          <div id="portrait_name">null</div>
-          <div id="portrait">null</div>
+        <div id="list">
+          <div id="list_buttom" onclick="interface_off('list');audio_buttom('click')"></div>
+          <div id="portrait_list">
+          </div>
+        </div>
+        <div id="role_portrait" onclick="player=1;portrait()">
+          <div id="portrait_background"></div>
+          <img id="portrait_color" src="resource/wish_background_5.png" />
+          <div id="portrait_name" class="no_select">
+            <div id="portrait_name_div">null</div>
+            <div id="portrait_name_star"></div>
+          </div>
+          <div id="portrait" class="portrait">
+            <main id="portrait_main"></main>
+          </div>
         </div>
         <div id="window_prompt">
           <div id="window_prompt_title" class="text_center color_white">
@@ -39,7 +50,7 @@
           <div
             id="window_prompt_buttom"
             class="buttom color_black"
-            onclick="interface_off('window_prompt');audio_buttom()"
+            onclick="interface_off('window_prompt');audio_buttom('click')"
           >
             关闭
           </div>
@@ -64,13 +75,17 @@
                 href="https://www.bilibili.com/video/BV1C44y157ZZ"
                 target="_blank"
                 >来源</a
-              >
+              ><br />出货概率<br />金 <b class="gold_probability"></b><br />
+              紫
+              <b class="purple_probability"></b><br />
+              蓝
+              <b class="blue_probability"></b>
             </div>
           </div>
           <div>
             <div
               class="buttom text_center no_select color_black"
-              onclick="interface_off('prompt');audio_buttom()"
+              onclick="interface_off('prompt');audio_buttom('click')"
             >
               关闭
             </div>
@@ -115,7 +130,11 @@
                 />
                 <div id="wish_object_up_2" class="wish_object_up_img"></div>
               </div>
-              <div onclick="wish_update(3)" id="wish_object_up3" class="object">
+              <div
+                onclick="audio_buttom('click');incomplete()"
+                id="wish_object_up3"
+                class="object"
+              >
                 <img
                   class="wish_object_img"
                   src="resource/wish_object_button.png"
@@ -138,7 +157,7 @@
                   null
                 </p>
                 <img
-                  onclick="audio_buttom();plus()"
+                  onclick="audio_buttom('click');plus()"
                   class="currency_img plus"
                   src="resource/plus.png"
                 />
@@ -186,17 +205,25 @@
               </div>
             </div>
             <div id="bottom_left_bottom" class="no_select">
-              <div id="store" class="buttom" onclick="audio_buttom()">
+              <div
+                id="store"
+                class="buttom"
+                onclick="audio_buttom('click');incomplete()"
+              >
                 尘辉兑换
               </div>
-              <div id="history" class="buttom" onclick="audio_buttom()">
+              <div
+                id="history"
+                class="buttom"
+                onclick="audio_buttom('click');incomplete()"
+              >
                 历史记录
               </div>
             </div>
           </div>
           <div id="bottom_right">
             <div id="start" class="color_brown no_select">
-              <div id="start_1" onclick="audio_buttom();start(1)">
+              <div id="start_1" onclick="audio_buttom('click');start(1)">
                 <p class="start_text">祈愿1次</p>
                 <div class="start_fate">
                   <img
@@ -206,7 +233,7 @@
                   <p>x 1</p>
                 </div>
               </div>
-              <div id="start_10" onclick="audio_buttom();start(10)">
+              <div id="start_10" onclick="audio_buttom('click');start(10)">
                 <p class="start_text">祈愿10次</p>
                 <div class="start_fate">
                   <img

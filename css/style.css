@@ -40,6 +40,11 @@ body {
   z-index: 10;
   display: none;
 }
+.gold_probability,
+.purple_probability,
+.blue_probability {
+  margin: 0px;
+}
 iframe#simulator {
   width: 1400px;
   height: 600px;
@@ -109,8 +114,6 @@ p {
 }
 #interface * {
   transition: 0.5s;
-  top: 0px;
-  left: 0px;
 }
 #interface p,
 #interface b,
