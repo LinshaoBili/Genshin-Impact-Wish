@@ -199,9 +199,11 @@ function portrait() {
   var portrait_main = document.getElementById("portrait_main");
   var portrait_name_star = document.getElementById("portrait_name_star");
   var portrait = document.getElementById("portrait");
+  portrait_main.style.display = "none";
   portrait_main.style.backgroundImage = "";
   portrait_main.style.backgroundPositionX = "0px";
   portrait_main.style.backgroundPositionY = "0px";
+  portrait.style.opacity = "0";
   portrait_main.style.filter = "contrast(0%)";
   portrait_name.style.transition = "none";
   while (portrait_name_star.firstChild) {
@@ -257,20 +259,23 @@ function portrait() {
       name = [3, "dubug"];
     }
     star();
-    if (name[0] > 3) {
+    setTimeout(function () {
+      portrait_main.style.display = "block";
       portrait_main.style.transition = "0.5s";
+    }, 100);
+    if (name[0] > 3) {
+      portrait.style.opacity = "1";
       portrait_main.style.backgroundImage =
-        "url(resource/portrait/Genshin_Impact/" + name[1] + ".png)";
+        "url(resource/portrait/" + name[1] + ".png)";
+    } else {
+      portrait.style.opacity = "0.8";
+      portrait_main.style.backgroundImage = "url(resource/Star_3.png)";
+    }
+    setTimeout(function () {
       portrait_main.style.backgroundPositionX = "center";
       portrait_main.style.backgroundPositionY = "center";
-      setTimeout(function () {
-        portrait_main.style.filter = "contrast(100%)";
-      }, 500);
-      portrait.style.opacity = "1";
-    } else {
-      portrait_main.style.backgroundImage = "";
-      portrait.style.opacity = "0";
-    }
+      portrait_main.style.filter = "contrast(100%)";
+    }, 200);
   }
 }
 function incomplete() {
@@ -291,7 +296,7 @@ function start(number) {
     var name = color + "_" + number;
     animation(name, 6700);
   } else {
-    window_prompt_text("原石不足", "请补充");
+    window_prompt_text("原石不足", "请补充<br />点击右上角原石右边的加号");
     interface_on("window_prompt");
   }
   update();
@@ -308,7 +313,13 @@ function new_list(role, color) {
     if (name[i] == "list") {
       list_div.className = name[i] + " " + role;
       list_div.style.backgroundImage =
-        "url(resource/portrait/Genshin_Impact/" + role + ".png)";
+        "url(resource/portrait/" + role + ".png)";
+      for (var Index = 1; Index < blue[0]+1; Index++) {
+        if (role == blue[Index]) {
+          list_div.className = name[i] + " 三星";
+          list_div.style.backgroundImage = "url(resource/Star_3.png)";
+        }
+      }
     } else {
       if (color == "gold") {
         list_div.className = list_div.className + " gold";

@@ -50,15 +50,15 @@ function update() {
   wish_up_3 = JSON.parse(localStorage.getItem("collection_up"));
   object_up_1 = document.getElementById("wish_object_up_1");
   object_up_1.style.backgroundImage =
-    "url('resource/object/Genshin Impact/" + wish_up_1[0] + ".png')";
+    "url('resource/object/" + wish_up_1[0] + ".png')";
   object_up_1.setAttribute("class", wish_up_1[0] + " wish_object_up_img");
   object_up_2 = document.getElementById("wish_object_up_2");
   object_up_2.style.backgroundImage =
-    "url('resource/object/Genshin Impact/" + wish_up_2[0] + ".png')";
+    "url('resource/object/" + wish_up_2[0] + ".png')";
   object_up_2.setAttribute("class", wish_up_2[0] + " wish_object_up_img");
   object_up_3 = document.getElementById("wish_object_up_3");
   object_up_3.style.backgroundImage =
-    "url('resource/object/Genshin Impact/" + wish_up_3[0] + ".png')";
+    "url('resource/object/" + wish_up_3[0] + ".png')";
   object_up_3.setAttribute("class", wish_up_3[0] + " wish_object_up_img");
   if (wish_up == 1) {
     document

@@ -25,10 +25,11 @@
   width: 750px;
   height: 750px;
   filter: contrast(0%);
-  transition: 0.5s;
-  background: 0px 0px/80% no-repeat;
+  transition: 0s;
+  background: 0px 0px/80%;
   background-position-x: center;
   background-position-y: center;
+  background-repeat: no-repeat;
 }
 #portrait_color {
   position: absolute;
@@ -128,6 +129,9 @@
   border-radius: 50px;
   transition: 0.5s;
 }
+.list.三星 {
+  background-size: 300%;
+}
 
 .list.阿贝多 {
   background-size: 850%;
@@ -195,12 +199,219 @@
   background-size: 1000%;
   background-position: 50% 18%;
 }
-.list.丽莎 {
-  background-position: 47.5% 0%;
+.list.纳西妲 {
+  background-size: 900%;
+  background-position: 47.5% 50%;
+}
+.list.娜维娅 {
+  background-size: 900%;
+  background-position: 57.5% 20%;
+}
+.list.妮露 {
+  background-size: 800%;
+  background-position: 52.5% 27.5%;
+}
+.list.七七 {
+  background-size: 500%;
+  background-position: 50% 45%;
+}
+.list.千织 {
+  background-size: 700%;
+  background-position: 50% 35%;
+}
+.list.琴 {
+  background-size: 700%;
+  background-position: 47.5% 25%;
+}
+.list.赛诺 {
+  background-size: 700%;
+  background-position: 50% 35%;
+}
+.list.申鹤 {
+  background-size: 700%;
+  background-position: 57.5% 20%;
+}
+.list.神里绫华 {
+  background-size: 800%;
+  background-position: 50% 45%;
+}
+.list.神里绫人 {
+  background-size: 700%;
+  background-position: 45% 20%;
+}
+.list.提纳里 {
+  background-size: 600%;
+  background-position: 50% 10%;
+}
+.list.万叶 {
+  background-size: 700%;
+  background-position: 47.5% -10%;
+}
+.list.温迪 {
+  background-size: 600%;
+  background-position: 45% 40%;
+}
+.list.闲云 {
+  background-size: 800%;
+  background-position: 50% 20%;
+}
+.list.宵宫 {
+  background-size: 550%;
+}
+.list.魈 {
+  background-size: 700%;
+  background-position: 50% 65%;
+}
+.list.心海 {
+  background-size: 600%;
+  background-position: 47.5% 20%;
+}
+.list.夜兰 {
+  background-size: 650%;
+  background-position: 45% 20%;
+}
+.list.优菈 {
+  background-size: 750%;
+  background-position: 50% 20%;
+}
+.list.钟离 {
+  background-size: 700%;
+  background-position: 45% 37.5%;
+}
+
+.list.安柏 {
+  background-position: 42.5% 50%;
+}
+.list.芭芭拉 {
+  background-position: 50% 30%;
+}
+.list.班尼特 {
+  background-position: 60% 50%;
+}
+.list.北斗 {
+  background-size: 600%;
+  background-position: 50% 30%;
+}
+.list.迪奥娜 {
+  background-size: 350%;
+  background-position: 45% 50%;
+}
+.list.多莉 {
+  background-size: 350%;
+  background-position: 60% 45%;
+}
+.list.珐露珊 {
+  background-position: 45% 20%;
+}
+.list.菲米尼 {
+  background-size: 600%;
+  background-position: 65% 20%;
 }
 .list.菲谢尔 {
   background-position: 55% 50%;
 }
+.list.嘉明 {
+  background-position: 45% 35%;
+}
+.list.九条裟罗 {
+  background-size: 600%;
+  background-position: 47.5% 10%;
+}
+.list.久岐忍 {
+  background-position: 55% 40%;
+}
+.list.卡维 {
+  background-size: 600%;
+  background-position: 55% 25%;
+}
+.list.凯亚 {
+  background-size: 600%;
+  background-position: 52.5% -10%;
+}
+.list.坎蒂丝 {
+  background-size: 500%;
+  background-position: 55% 25%;
+}
+.list.柯莱 {
+  background-size: 600%;
+  background-position: 40% 40%;
+}
 .list.莱依拉 {
   background-position: 50% 25%;
+}
+.list.雷泽 {
+  background-size: 600%;
+  background-position: 55% 40%;
+}
+.list.丽莎 {
+  background-position: 47.5% 0%;
+}
+.list.琳妮特 {
+  background-position: 45% 50%;
+}
+.list.鹿野院平藏 {
+  background-position: 47.5% 40%;
+}
+.list.米卡 {
+  background-size: 450%;
+  background-position: 45% 20%;
+}
+.list.凝光 {
+  background-size: 800%;
+  background-position: 60% 10%;
+}
+.list.诺艾尔 {
+  background-size: 600%;
+  background-position: 55% 10%;
+}
+.list.绮良良 {
+  background-size: 750%;
+  background-position: 47.5% -10%;
+}
+.list.砂糖 {
+  background-size: 650%;
+  background-position: 50% 20%;
+}
+.list.托马 {
+  background-size: 650%;
+  background-position: 47.5% 20%;
+}
+.list.夏洛蒂 {
+  background-size: 700%;
+  background-position: 50% 35%;
+}
+.list.夏沃蕾 {
+  background-size: 600%;
+  background-position: 47.5% 50%;
+}
+.list.香菱 {
+  background-size: 750%;
+  background-position: 42.5% 0%;
+}
+.list.辛焱 {
+  background-size: 800%;
+  background-position: 52.5% 50%;
+}
+.list.行秋 {
+  background-size: 600%;
+  background-position: 50% 10%;
+}
+.list.烟绯 {
+  background-size: 750%;
+  background-position: 27.5% 0%;
+}
+.list.瑶瑶 {
+  background-size: 300%;
+  background-position: 52.5% 40%;
+}
+.list.云堇 {
+  background-position: 50% 25%;
+}
+.list.早柚 {
+  background-size: 650%;
+  background-position: 57.5% 40%;
+}
+.list.重云 {
+  background-size: 600%;
+  background-position: 52.5% 30%;
 }
