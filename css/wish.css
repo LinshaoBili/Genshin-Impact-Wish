@@ -1,3 +1,10 @@
+.skip {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 5%;
+  z-index: 10;
+}
 #role_portrait {
   display: none;
   z-index: 10;
@@ -27,6 +34,7 @@
   filter: contrast(0%);
   transition: 0s;
   background: 0px 0px/80%;
+  background-size: 80%;
   background-position-x: center;
   background-position-y: center;
   background-repeat: no-repeat;
@@ -110,7 +118,7 @@
 #list_buttom {
   position: absolute;
   top: 35px;
-  right: 35px;
+  right: 2.5%;
   padding: 2.5px;
   width: 22.5px;
   height: 22.5px;
@@ -200,8 +208,8 @@
   background-position: 50% 18%;
 }
 .list.纳西妲 {
-  background-size: 900%;
-  background-position: 47.5% 50%;
+  background-size: 650%;
+  background-position: 47.5% 60%;
 }
 .list.娜维娅 {
   background-size: 900%;

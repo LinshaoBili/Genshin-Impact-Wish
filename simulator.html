@@ -27,9 +27,11 @@
     <div id="enter">
       <div id="interface">
         <div id="list">
-          <div id="list_buttom" onclick="interface_off('list');audio_buttom('click')"></div>
-          <div id="portrait_list">
-          </div>
+          <div
+            id="list_buttom"
+            onclick="interface_off('list');audio_buttom('click')"
+          ></div>
+          <div id="portrait_list"></div>
         </div>
         <div id="role_portrait" onclick="player=1;portrait()">
           <div id="portrait_background"></div>
@@ -42,6 +44,13 @@
             <main id="portrait_main"></main>
           </div>
         </div>
+        <div
+          id="role_portrait_skip"
+          class="color_white skip no_select"
+          onclick="localStorage.setItem('skip', 2);interface_off('role_portrait_skip');off()"
+        >
+          跳过
+        </div>
         <div id="window_prompt">
           <div id="window_prompt_title" class="text_center color_white">
             title
@@ -49,7 +58,7 @@
           <div id="window_prompt_text" class="color_white">text</div>
           <div
             id="window_prompt_buttom"
-            class="buttom color_black"
+            class="buttom color_black no_select"
             onclick="interface_off('window_prompt');audio_buttom('click')"
           >
             关闭
@@ -79,7 +88,7 @@
               紫
               <b class="purple_probability"></b><br />
               蓝
-              <b class="blue_probability"></b>
+              <b class="blue_probability"></b><br />测试版不代表最终成品效果
             </div>
           </div>
           <div>
@@ -107,6 +116,13 @@
         >
           <audio id="animation_ogg"></audio>
         </video>
+        <div
+          id="animation_skip"
+          class="color_white skip no_select"
+          onclick="localStorage.setItem('skip', 1);interface_off('animation_skip');reduction_background();new_portrait();"
+        >
+          跳过
+        </div>
       </div>
       <div id="main_body">
         <div id="top">
@@ -130,11 +146,7 @@
                 />
                 <div id="wish_object_up_2" class="wish_object_up_img"></div>
               </div>
-              <div
-                onclick="audio_buttom('click');incomplete()"
-                id="wish_object_up3"
-                class="object"
-              >
+              <div onclick="wish_update(3)" id="wish_object_up3" class="object">
                 <img
                   class="wish_object_img"
                   src="resource/wish_object_button.png"

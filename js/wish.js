@@ -28,6 +28,16 @@ function wish_classification() {
     Cache += 1;
   }
 }
+function reduction_background() {
+  var background = document.getElementById("background");
+  var animationElement = document.getElementById("animation");
+  var animation_ogg = document.getElementById("animation_ogg");
+  background.style.zIndex = "";
+  animationElement.style.zIndex = "";
+  animationElement.src = "resource/background_video.mp4";
+  animation_ogg.src = "";
+  audio_buttom("wish_appear");
+}
 function animation(name, times) {
   var background = document.getElementById("background");
   var animationElement = document.getElementById("animation");
@@ -39,12 +49,12 @@ function animation(name, times) {
   animation_ogg.controls = false;
   animation_ogg.play();
   setTimeout(function () {
-    background.style.zIndex = "";
-    animationElement.style.zIndex = "";
-    animationElement.src = "resource/background_video.mp4";
-    animation_ogg.src = "";
-    audio_buttom("wish_appear");
-    new_portrait();
+    if (localStorage.getItem("skip") <= 0) {
+      interface_off("animation_skip");
+      reduction_background();
+      localStorage.setItem("skip", 1);
+      new_portrait();
+    }
   }, times);
 }
 function seek_wish(number) {
@@ -110,12 +120,12 @@ function purple(up) {
 }
 
 function sort() {
-  result.sort((a, b) => {
+  list.sort((a, b) => {
     const numA = parseInt(a.split("/")[0]);
     const numB = parseInt(b.split("/")[0]);
     return numB - numA;
   });
-  // result = result.map((item) => item.split("/")[1]);
+  // list = list.map((item) => item.split("/")[1]);
 }
 function wish_start(number) {
   wish_classification();
@@ -188,48 +198,59 @@ function wish_start(number) {
   }
 }
 function new_portrait() {
-  player = 0;
-  number = result.length;
-  document.getElementById("portrait_color").src =
-    "resource/wish_background_" + Math.ceil(Math.random() * 5) + ".png";
-  portrait();
+  if (localStorage.getItem("skip") <= 1) {
+    skip = 0;
+    player = 0;
+    interface_on("role_portrait_skip");
+    number = result.length;
+    document.getElementById("portrait_color").src =
+      "resource/wish_background_" + Math.ceil(Math.random() * 5) + ".png";
+    portrait();
+  }
+}
+function off() {
+  list = result;
+  sort();
+  interface_off("role_portrait_skip");
+  interface_off("role_portrait");
+  document.getElementById("portrait_list").innerHTML = "";
+  if (result.length > 1) {
+    interface_on("list");
+    for (var i = 0; i < result.length; i++) {
+      var number = Number(result[i].split("/")[0]);
+      if (number == 5) {
+        var color = "gold";
+      } else {
+        if (number == 4) {
+          var color = "purple";
+        } else {
+          var color = "blue";
+        }
+      }
+      new_list(list[i].split("/")[1], color);
+      list_width_update();
+    }
+  }
 }
 function portrait() {
   var portrait_name = document.getElementById("portrait_name_div");
   var portrait_main = document.getElementById("portrait_main");
   var portrait_name_star = document.getElementById("portrait_name_star");
   var portrait = document.getElementById("portrait");
+  portrait_name.style.display = "none";
+  portrait_name.style.transition = "none";
+  portrait_name.style.color = "rgba(256, 256, 256, 0)";
+  portrait_name.style.opacity = "0";
+  portrait_name_star.style.display = "none";
+  portrait_name_star.style.transition = "none";
+  portrait_name_star.style.opacity = "0";
   portrait_main.style.display = "none";
   portrait_main.style.backgroundImage = "";
-  portrait_main.style.backgroundPositionX = "0px";
-  portrait_main.style.backgroundPositionY = "0px";
-  portrait.style.opacity = "0";
+  portrait_main.style.backgroundSize = "100%";
   portrait_main.style.filter = "contrast(0%)";
-  portrait_name.style.transition = "none";
+  portrait.style.opacity = "0";
   while (portrait_name_star.firstChild) {
     portrait_name_star.removeChild(portrait_name_star.firstChild);
-  }
-  function off() {
-    sort();
-    interface_off("role_portrait");
-    document.getElementById("portrait_list").innerHTML = "";
-    if (result.length > 1) {
-      interface_on("list");
-      for (var i = 0; i < result.length; i++) {
-        var number = Number(result[i].split("/")[0]);
-        if (number == 5) {
-          var color = "gold";
-        } else {
-          if (number == 4) {
-            var color = "purple";
-          } else {
-            var color = "blue";
-          }
-        }
-        new_list(result[i].split("/")[1], color);
-        list_width_update();
-      }
-    }
   }
   function star() {
     for (var i = 0; i < name[0]; i++) {
@@ -260,6 +281,10 @@ function portrait() {
     }
     star();
     setTimeout(function () {
+      portrait_name.style.display = "block";
+      portrait_name.style.transition = "0.5s";
+      portrait_name_star.style.display = "block";
+      portrait_name_star.style.transition = "0.5s";
       portrait_main.style.display = "block";
       portrait_main.style.transition = "0.5s";
     }, 100);
@@ -272,10 +297,12 @@ function portrait() {
       portrait_main.style.backgroundImage = "url(resource/Star_3.png)";
     }
     setTimeout(function () {
-      portrait_main.style.backgroundPositionX = "center";
-      portrait_main.style.backgroundPositionY = "center";
+      portrait_name.style.color = "";
+      portrait_name.style.opacity = "1";
+      portrait_name_star.style.opacity = "1";
+      portrait_main.style.backgroundSize = "80%";
       portrait_main.style.filter = "contrast(100%)";
-    }, 200);
+    }, 250);
   }
 }
 function incomplete() {
@@ -291,10 +318,12 @@ function start(number) {
   update();
   var primogem = JSON.parse(localStorage.getItem("primogem"));
   if (number * 160 <= primogem) {
+    localStorage.setItem("skip", 0);
     localStorage.setItem("primogem", primogem - number * 160);
     wish_start(number);
     var name = color + "_" + number;
-    animation(name, 6700);
+    interface_on("animation_skip");
+    animation(name, 6600);
   } else {
     window_prompt_text("原石不足", "请补充<br />点击右上角原石右边的加号");
     interface_on("window_prompt");
@@ -314,7 +343,7 @@ function new_list(role, color) {
       list_div.className = name[i] + " " + role;
       list_div.style.backgroundImage =
         "url(resource/portrait/" + role + ".png)";
-      for (var Index = 1; Index < blue[0]+1; Index++) {
+      for (var Index = 1; Index < blue[0] + 1; Index++) {
         if (role == blue[Index]) {
           list_div.className = name[i] + " 三星";
           list_div.style.backgroundImage = "url(resource/Star_3.png)";

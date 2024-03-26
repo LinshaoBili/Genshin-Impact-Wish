@@ -129,7 +129,9 @@ function audio_buttom(name) {
   audioContainer.innerHTML = ""; // 清空容器中的旧内容
   audioContainer.appendChild(audio);
   // 播放音频
-  audio.play();
+  setTimeout(function () {
+    audio.play();
+  }, 150);
 }
 
 function plus() {
@@ -143,5 +145,6 @@ function list_width_update() {
   var list = document.getElementById("portrait_list");
   list.style.minWidth =
     document.getElementsByClassName("portrait_list").length * 75 + "px";
-  list.style.marginLeft = "-" + Number(list.style.minWidth.split("px")[0]) / 2 + "px";
+  list.style.marginLeft =
+    "-" + Number(list.style.minWidth.split("px")[0]) / 2 + "px";
 }
