@@ -1,4 +1,5 @@
 //初始化
+skip = 0;
 wish_up = 1;
 cost = 160;
 var initialization = localStorage.getItem("prompt");

@@ -14,6 +14,7 @@
     <link rel="prefetch" href="resource/gold_1.mp4" as="video" />
     <link rel="prefetch" href="resource/gold_10.mp4" as="video" />
     <link rel="prefetch" href="resource/click.ogg" as="ogg" />
+    <link rel="prefetch" href="resource/wish_appear.ogg" as="ogg" />
     <link rel="prefetch" href="resource/wish.ogg" as="ogg" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/wish.css" />
@@ -26,9 +27,20 @@
     <main id="audio"></main>
     <div id="enter">
       <div id="interface">
+        <div id="menu">
+          <div id="menu_interface">
+            <div
+              id="menu_exit_buttom"
+              class="close_buttom"
+              onclick="audio_buttom('click');menu('off')"
+            ></div>
+            <div id="set_up_buttom" onclick="audio_buttom('click');alert('未完成')"></div>
+          </div>
+        </div>
         <div id="list">
           <div
             id="list_buttom"
+            class="close_buttom"
             onclick="interface_off('list');audio_buttom('click')"
           ></div>
           <div id="portrait_list"></div>
@@ -94,7 +106,7 @@
           <div>
             <div
               class="buttom text_center no_select color_black"
-              onclick="interface_off('prompt');audio_buttom('click')"
+              onclick="audio_buttom('click');interface_off('prompt')"
             >
               关闭
             </div>
@@ -127,7 +139,12 @@
       <div id="main_body">
         <div id="top">
           <div id="wish_logo" class="wish_top">
-            <img id="wish_logo_img" src="resource/Wish.png" />
+            <div
+              id="wish_logo_img"
+              onmouseover="logo('Paimon')"
+              onmouseout="logo('Wish')"
+              onclick="audio_buttom('click');menu('on')"
+            ></div>
             <p id="wish_logo_text" class="color_white no_select">祈愿</p>
           </div>
           <div id="wish_object" class="wish_top">
@@ -146,7 +163,11 @@
                 />
                 <div id="wish_object_up_2" class="wish_object_up_img"></div>
               </div>
-              <div onclick="wish_update(3)" id="wish_object_up3" class="object">
+              <div
+                onclick="audio_buttom('click');incomplete()"
+                id="wish_object_up3"
+                class="object"
+              >
                 <img
                   class="wish_object_img"
                   src="resource/wish_object_button.png"
@@ -230,6 +251,13 @@
                 onclick="audio_buttom('click');incomplete()"
               >
                 历史记录
+              </div>
+              <div
+                id="delete_save"
+                class="buttom"
+                onclick="audio_buttom('click');clear_save()"
+              >
+                删除存档
               </div>
             </div>
           </div>

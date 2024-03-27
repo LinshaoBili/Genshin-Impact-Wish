@@ -148,3 +148,21 @@ function list_width_update() {
   list.style.marginLeft =
     "-" + Number(list.style.minWidth.split("px")[0]) / 2 + "px";
 }
+function logo(name) {
+  var logo = document.getElementById("wish_logo_img");
+  logo.style.backgroundImage = "url(resource/" + name + ".png)";
+}
+function menu(params) {
+  var menu = document.getElementById("menu");
+  if (params == "on") {
+    interface_on("menu");
+    setTimeout(function () {
+      menu.style.marginTop = "0px";
+    }, 25);
+  } else {
+    menu.style.marginTop = "-100%";
+    setTimeout(function () {
+      interface_off("menu");
+    }, 50);
+  }
+}

@@ -31,6 +31,35 @@ body {
     transition: 0.5s;
   }
 }
+#menu{
+  margin-top: -100%;
+}
+#menu {
+  display: none;
+}
+#menu_interface {
+  background: linear-gradient(#4c5367 30%, #4c546781, #4c546700);
+  border-radius: 0px 0px 50px 5px;
+  width: 50px;
+  height: 800px;
+  margin-left: 50px;
+  z-index: 15;
+  padding: 10px 0px 5px 0px;
+}
+#menu_interface div {
+  margin: 0px auto 0px auto;
+  margin-bottom: 10px;
+}
+#set_up_buttom {
+  background-image: url(../resource/set_up.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+#set_up_buttom:active {
+  background-size: 90% 90%;
+  transition: 0.025s;
+}
 #wish_animation {
   position: absolute;
   top: 0px;
@@ -245,8 +274,22 @@ body {
 }
 #wish_logo_img {
   height: 35px;
+  width: 35px;
   padding-right: 35px;
+  background-image: url(../resource/Wish.png);
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: center center;
   transform: translateY(8.5px);
+  transition: 0.25s;
+}
+#wish_logo_img:hover {
+  transform: translateY(7.5px);
+  transition: 0.15s;
+}
+#wish_logo_img:active {
+  background-size: 30px 30px;
+  transition: 0.05s;
 }
 #wish_object_div {
   display: flex;

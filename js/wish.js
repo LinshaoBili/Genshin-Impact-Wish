@@ -299,9 +299,11 @@ function portrait() {
     setTimeout(function () {
       portrait_name.style.color = "";
       portrait_name.style.opacity = "1";
-      portrait_name_star.style.opacity = "1";
       portrait_main.style.backgroundSize = "80%";
       portrait_main.style.filter = "contrast(100%)";
+      setTimeout(function () {
+        portrait_name_star.style.opacity = "1";
+      }, 200);
     }, 250);
   }
 }
