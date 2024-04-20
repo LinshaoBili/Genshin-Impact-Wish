@@ -54,7 +54,7 @@
 #role_portrait,
 #portrait,
 #portrait_color,
-#portrait_background,#set_up {
+#portrait_background {
   width: 100%;
   height: 100%;
   top: 0px;
@@ -120,7 +120,8 @@
   top: 35px;
   right: 2.5%;
 }
-.close_buttom,#set_up_buttom{
+.close_buttom,
+#set_up_buttom {
   padding: 2.5px;
   width: 22.5px;
   height: 22.5px;
@@ -255,7 +256,7 @@
   background-size: 600%;
   background-position: 50% 10%;
 }
-.list.万叶 {
+.list.枫原万叶 {
   background-size: 700%;
   background-position: 47.5% -10%;
 }
@@ -274,7 +275,7 @@
   background-size: 700%;
   background-position: 50% 65%;
 }
-.list.心海 {
+.list.珊瑚宫心海 {
   background-size: 600%;
   background-position: 47.5% 20%;
 }

@@ -175,7 +175,11 @@ function wish_start(number) {
       } else {
         text = Math.ceil(Math.random() * 100000);
         if (probability[0] > text) {
-          up = gold_50();
+          if (seek_wish(2) >= 1) {
+            up = gold("yes");
+          } else {
+            up = gold_50();
+          }
         } else {
           if (probability[1] > text) {
             up = purple_5();

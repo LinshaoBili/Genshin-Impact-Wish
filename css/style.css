@@ -31,10 +31,11 @@ body {
     transition: 0.5s;
   }
 }
-#menu{
+#menu {
   margin-top: -100%;
 }
-#menu {
+#menu,
+#set_up {
   display: none;
 }
 #menu_interface {
@@ -59,6 +60,20 @@ body {
 #set_up_buttom:active {
   background-size: 90% 90%;
   transition: 0.025s;
+}
+#set_up {
+  padding: 25px 0px 25px 0px;
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  top: 15%;
+  left: 0px;
+}
+#set_up p {
+  text-align: center;
+}
+#set_up input {
+  width: 80px;
 }
 #wish_animation {
   position: absolute;
@@ -150,7 +165,8 @@ p {
   opacity: 1;
 }
 #prompt,
-#window_prompt {
+#window_prompt,
+#set_up {
   background-color: rgba(183, 164, 144, 0.888);
   box-shadow: 0px 0px 100px #b7a490;
 }

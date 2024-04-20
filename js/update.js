@@ -90,6 +90,9 @@ function interface_on(id) {
   filter.style.zIndex = "5";
   setTimeout((filter.style.opacity = "0.65"), 500);
 }
+function blocks(id, display) {
+  document.getElementById(id).style.display = display;
+}
 function interface_off(id) {
   document.getElementById("interface").style.zIndex = "-10";
   var filter = document.getElementById("filter");
@@ -165,4 +168,52 @@ function menu(params) {
       interface_off("menu");
     }, 50);
   }
+}
+function update_up(number) {
+  if (number == 0) {
+    var up5_wish = document.getElementsByClassName("up5_wish");
+    localStorage.setItem(
+      "probability",
+      JSON.stringify([
+        up5_wish[0].value,
+        up5_wish[1].value,
+        100000 - (Number(up5_wish[0].value) + Number(up5_wish[1].value)),
+      ])
+    );
+  } else {
+    if (number == 1) {
+      var select = document.getElementById("no_1_up");
+      var select_4 = document.getElementsByClassName("no_1_up_4");
+      localStorage.setItem(
+        "role_up_1",
+        JSON.stringify([
+          select.value,
+          0,
+          0,
+          0,
+          select_4[0].value + "/" + select_4[1].value + "/" + select_4[2].value,
+        ])
+      );
+    } else {
+      if (number == 2) {
+        var select = document.getElementById("no_2_up");
+        var select_4 = document.getElementsByClassName("no_2_up_4");
+        localStorage.setItem(
+          "role_up_2",
+          JSON.stringify([
+            select.value,
+            0,
+            0,
+            0,
+            select_4[0].value +
+              "/" +
+              select_4[1].value +
+              "/" +
+              select_4[2].value,
+          ])
+        );
+      }
+    }
+  }
+  update();
 }

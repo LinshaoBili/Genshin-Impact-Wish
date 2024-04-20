@@ -16,7 +16,7 @@ var initialization = localStorage.getItem("acquaint_fate");
 if (initialization == null) localStorage.setItem("acquaint_fate", 0); //相遇之缘
 var initialization = localStorage.getItem("probability");
 if (initialization == null)
-  localStorage.setItem("probability", JSON.stringify([600, 5100, 94000])); //基础出率 5星,4星,3星
+  localStorage.setItem("probability", JSON.stringify([600, 5100, 94300])); //基础出率 5星,4星,3星
 var initialization = localStorage.getItem("role_up_1");
 if (initialization == null)
   localStorage.setItem(
@@ -70,12 +70,12 @@ if (initialization == null)
       "5/神里绫华",
       "5/神里绫人",
       "5/no/提纳里",
-      "5/万叶",
+      "5/枫原万叶",
       "5/温迪",
       "5/闲云",
       "5/宵宫",
       "5/魈",
-      "5/心海",
+      "5/珊瑚宫心海",
       "5/夜兰",
       "5/优菈",
       "5/钟离",
@@ -135,3 +135,48 @@ blue = [
   "沐浴龙血的剑",
   "冷刃",
 ];
+setTimeout(function () {
+  var up = JSON.parse(localStorage.getItem("list"));
+  var select = document.getElementsByClassName("up5");
+  var select_4 = document.getElementsByClassName("up4");
+  for (var i = 0; i < up.length; i++) {
+    if (up[i].split("/")[0] == 5) {
+      if (up[i].split("/")[1] == "no") {
+        var name = up[i].split("/")[2];
+      } else {
+        var name = up[i].split("/")[1];
+      }
+      for (let index = 0; index < select.length; index++) {
+        var option = document.createElement("option");
+        option.value = name;
+        option.innerHTML = name;
+        select[index].appendChild(option);
+      }
+    } else {
+      var name = up[i];
+      for (var index = 0; index < select_4.length; index++) {
+        var option = document.createElement("option");
+        option.value = name;
+        option.innerHTML = name;
+        select_4[index].appendChild(option);
+      }
+    }
+  }
+  select[0].value = JSON.parse(localStorage.getItem("role_up_1"))[0];
+  for (var i = 0; i < select_4.length; i++) {
+    select_4[i].value = JSON.parse(localStorage.getItem("role_up_1"))[4].split(
+      "/"
+    )[i];
+  }
+  select[1].value = JSON.parse(localStorage.getItem("role_up_2"))[0];
+  for (var i = 3; i < select_4.length; i++) {
+    select_4[i].value = JSON.parse(localStorage.getItem("role_up_2"))[4].split(
+      "/"
+    )[i-3];
+  }
+  var up5_wish = document.getElementsByClassName("up5_wish");
+  var probability = JSON.parse(localStorage.getItem("probability"));
+  for (var i = 0; i < up5_wish.length; i++) {
+    up5_wish[i].value=probability[i];
+  }
+}, 1000);

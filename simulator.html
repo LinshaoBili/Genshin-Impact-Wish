@@ -8,11 +8,6 @@
       content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <link rel="icon" href="resource/Wish.png" type="image/x-icon" />
-    <link rel="prefetch" href="resource/blue_1.mp4" as="video" />
-    <link rel="prefetch" href="resource/purple_1.mp4" as="video" />
-    <link rel="prefetch" href="resource/purple_10.mp4" as="video" />
-    <link rel="prefetch" href="resource/gold_1.mp4" as="video" />
-    <link rel="prefetch" href="resource/gold_10.mp4" as="video" />
     <link rel="prefetch" href="resource/click.ogg" as="ogg" />
     <link rel="prefetch" href="resource/wish_appear.ogg" as="ogg" />
     <link rel="prefetch" href="resource/wish.ogg" as="ogg" />
@@ -34,7 +29,55 @@
               class="close_buttom"
               onclick="audio_buttom('click');menu('off')"
             ></div>
-            <div id="set_up_buttom" onclick="audio_buttom('click');alert('未完成')"></div>
+            <div
+              id="set_up_buttom"
+              onclick="audio_buttom('click');blocks('set_up','block')"
+            ></div>
+          </div>
+          <div id="set_up">
+            <p>设置(临时)</p>
+            <p>目前修改up角色 卡池图片可能为空</p>
+            <p onchange="update_up(0)">
+              概率 1%=1000 5星
+              <input
+                type="number"
+                class="up5_wish"
+                min="0"
+                max="100000"
+              />4星<input type="number" class="up5_wish" min="0" max="100000" />
+            </p>
+            <p onchange="update_up(1)">
+              <b>
+                1号卡池 up角色
+                <select id="no_1_up" class="up5"></select>
+              </b>
+              <b>
+                四星
+                <select class="no_1_up_4 up4"></select>
+              </b>
+              <b>
+                <select class="no_1_up_4 up4"></select>
+              </b>
+              <b>
+                <select class="no_1_up_4 up4"></select>
+              </b>
+            </p>
+            <p onchange="update_up(2)">
+              <b>
+                2号卡池 up角色
+                <select id="no_2_up" class="up5"></select>
+              </b>
+              <b>
+                四星
+                <select class="no_2_up_4 up4"></select>
+              </b>
+              <b>
+                <select class="no_2_up_4 up4"></select>
+              </b>
+              <b>
+                <select class="no_2_up_4 up4"></select>
+              </b>
+            </p>
           </div>
         </div>
         <div id="list">
@@ -80,7 +123,16 @@
           <p class="text_center">提示</p>
           <div class="overflow-y">
             <div class="center prompt_div">
-              仅供娱乐如果 开启了"破解复制"建议关闭<br />为了拥有更好的体验部分文件会提前加载请注意网络<br />素材均来源于网络<br />原神角色立绘
+              仅供娱乐 如果 开启了"破解复制"建议关闭<br />建议使用<a
+                href="https://www.microsoft.com/zh-cn/edge/download"
+                target="_blank"
+                >"Edge"</a
+              >
+              <a
+                href="https://www.google.cn/intl/en_uk/chrome/update"
+                target="_blank"
+                >"Chrome"</a
+              >浏览器打开<br />素材均来源于网络<br />原神角色立绘
               <a
                 href="https://www.bilibili.com/read/cv18475650/"
                 target="_blank"
